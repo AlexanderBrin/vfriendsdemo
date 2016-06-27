@@ -1,0 +1,536 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		11A921A51D2173010043B1DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A921A41D2173010043B1DC /* main.m */; };
+		11A921A81D2173010043B1DC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A921A71D2173010043B1DC /* AppDelegate.m */; };
+		11A921AB1D2173010043B1DC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A921AA1D2173010043B1DC /* ViewController.m */; };
+		11A921AE1D2173010043B1DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11A921AC1D2173010043B1DC /* Main.storyboard */; };
+		11A921B11D2173010043B1DC /* vkfriends.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11A921AF1D2173010043B1DC /* vkfriends.xcdatamodeld */; };
+		11A921B31D2173010043B1DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11A921B21D2173010043B1DC /* Assets.xcassets */; };
+		11A921B61D2173010043B1DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11A921B41D2173010043B1DC /* LaunchScreen.storyboard */; };
+		11A921C11D2173010043B1DC /* vkfriendsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A921C01D2173010043B1DC /* vkfriendsTests.m */; };
+		11A921CC1D2173010043B1DC /* vkfriendsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A921CB1D2173010043B1DC /* vkfriendsUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		11A921BD1D2173010043B1DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 11A921981D2173010043B1DC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 11A9219F1D2173010043B1DC;
+			remoteInfo = vkfriends;
+		};
+		11A921C81D2173010043B1DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 11A921981D2173010043B1DC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 11A9219F1D2173010043B1DC;
+			remoteInfo = vkfriends;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		11A921A01D2173010043B1DC /* vkfriends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vkfriends.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		11A921A41D2173010043B1DC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		11A921A61D2173010043B1DC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		11A921A71D2173010043B1DC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		11A921A91D2173010043B1DC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		11A921AA1D2173010043B1DC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		11A921AD1D2173010043B1DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		11A921B01D2173010043B1DC /* vkfriends.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = vkfriends.xcdatamodel; sourceTree = "<group>"; };
+		11A921B21D2173010043B1DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		11A921B51D2173010043B1DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		11A921B71D2173010043B1DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11A921BC1D2173010043B1DC /* vkfriendsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vkfriendsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		11A921C01D2173010043B1DC /* vkfriendsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = vkfriendsTests.m; sourceTree = "<group>"; };
+		11A921C21D2173010043B1DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11A921C71D2173010043B1DC /* vkfriendsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vkfriendsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		11A921CB1D2173010043B1DC /* vkfriendsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = vkfriendsUITests.m; sourceTree = "<group>"; };
+		11A921CD1D2173010043B1DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		11A9219D1D2173010043B1DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11A921B91D2173010043B1DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11A921C41D2173010043B1DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		11A921971D2173010043B1DC = {
+			isa = PBXGroup;
+			children = (
+				11A921A21D2173010043B1DC /* vkfriends */,
+				11A921BF1D2173010043B1DC /* vkfriendsTests */,
+				11A921CA1D2173010043B1DC /* vkfriendsUITests */,
+				11A921A11D2173010043B1DC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		11A921A11D2173010043B1DC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				11A921A01D2173010043B1DC /* vkfriends.app */,
+				11A921BC1D2173010043B1DC /* vkfriendsTests.xctest */,
+				11A921C71D2173010043B1DC /* vkfriendsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		11A921A21D2173010043B1DC /* vkfriends */ = {
+			isa = PBXGroup;
+			children = (
+				11A921A61D2173010043B1DC /* AppDelegate.h */,
+				11A921A71D2173010043B1DC /* AppDelegate.m */,
+				11A921A91D2173010043B1DC /* ViewController.h */,
+				11A921AA1D2173010043B1DC /* ViewController.m */,
+				11A921AC1D2173010043B1DC /* Main.storyboard */,
+				11A921B21D2173010043B1DC /* Assets.xcassets */,
+				11A921B41D2173010043B1DC /* LaunchScreen.storyboard */,
+				11A921B71D2173010043B1DC /* Info.plist */,
+				11A921AF1D2173010043B1DC /* vkfriends.xcdatamodeld */,
+				11A921A31D2173010043B1DC /* Supporting Files */,
+			);
+			path = vkfriends;
+			sourceTree = "<group>";
+		};
+		11A921A31D2173010043B1DC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				11A921A41D2173010043B1DC /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		11A921BF1D2173010043B1DC /* vkfriendsTests */ = {
+			isa = PBXGroup;
+			children = (
+				11A921C01D2173010043B1DC /* vkfriendsTests.m */,
+				11A921C21D2173010043B1DC /* Info.plist */,
+			);
+			path = vkfriendsTests;
+			sourceTree = "<group>";
+		};
+		11A921CA1D2173010043B1DC /* vkfriendsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				11A921CB1D2173010043B1DC /* vkfriendsUITests.m */,
+				11A921CD1D2173010043B1DC /* Info.plist */,
+			);
+			path = vkfriendsUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		11A9219F1D2173010043B1DC /* vkfriends */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11A921D01D2173010043B1DC /* Build configuration list for PBXNativeTarget "vkfriends" */;
+			buildPhases = (
+				11A9219C1D2173010043B1DC /* Sources */,
+				11A9219D1D2173010043B1DC /* Frameworks */,
+				11A9219E1D2173010043B1DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = vkfriends;
+			productName = vkfriends;
+			productReference = 11A921A01D2173010043B1DC /* vkfriends.app */;
+			productType = "com.apple.product-type.application";
+		};
+		11A921BB1D2173010043B1DC /* vkfriendsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11A921D31D2173010043B1DC /* Build configuration list for PBXNativeTarget "vkfriendsTests" */;
+			buildPhases = (
+				11A921B81D2173010043B1DC /* Sources */,
+				11A921B91D2173010043B1DC /* Frameworks */,
+				11A921BA1D2173010043B1DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				11A921BE1D2173010043B1DC /* PBXTargetDependency */,
+			);
+			name = vkfriendsTests;
+			productName = vkfriendsTests;
+			productReference = 11A921BC1D2173010043B1DC /* vkfriendsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		11A921C61D2173010043B1DC /* vkfriendsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11A921D61D2173010043B1DC /* Build configuration list for PBXNativeTarget "vkfriendsUITests" */;
+			buildPhases = (
+				11A921C31D2173010043B1DC /* Sources */,
+				11A921C41D2173010043B1DC /* Frameworks */,
+				11A921C51D2173010043B1DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				11A921C91D2173010043B1DC /* PBXTargetDependency */,
+			);
+			name = vkfriendsUITests;
+			productName = vkfriendsUITests;
+			productReference = 11A921C71D2173010043B1DC /* vkfriendsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		11A921981D2173010043B1DC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Alexander Brin";
+				TargetAttributes = {
+					11A9219F1D2173010043B1DC = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					11A921BB1D2173010043B1DC = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 11A9219F1D2173010043B1DC;
+					};
+					11A921C61D2173010043B1DC = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 11A9219F1D2173010043B1DC;
+					};
+				};
+			};
+			buildConfigurationList = 11A9219B1D2173010043B1DC /* Build configuration list for PBXProject "vkfriends" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 11A921971D2173010043B1DC;
+			productRefGroup = 11A921A11D2173010043B1DC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				11A9219F1D2173010043B1DC /* vkfriends */,
+				11A921BB1D2173010043B1DC /* vkfriendsTests */,
+				11A921C61D2173010043B1DC /* vkfriendsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		11A9219E1D2173010043B1DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11A921B61D2173010043B1DC /* LaunchScreen.storyboard in Resources */,
+				11A921B31D2173010043B1DC /* Assets.xcassets in Resources */,
+				11A921AE1D2173010043B1DC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11A921BA1D2173010043B1DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11A921C51D2173010043B1DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		11A9219C1D2173010043B1DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11A921AB1D2173010043B1DC /* ViewController.m in Sources */,
+				11A921A81D2173010043B1DC /* AppDelegate.m in Sources */,
+				11A921B11D2173010043B1DC /* vkfriends.xcdatamodeld in Sources */,
+				11A921A51D2173010043B1DC /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11A921B81D2173010043B1DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11A921C11D2173010043B1DC /* vkfriendsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11A921C31D2173010043B1DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11A921CC1D2173010043B1DC /* vkfriendsUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		11A921BE1D2173010043B1DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 11A9219F1D2173010043B1DC /* vkfriends */;
+			targetProxy = 11A921BD1D2173010043B1DC /* PBXContainerItemProxy */;
+		};
+		11A921C91D2173010043B1DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 11A9219F1D2173010043B1DC /* vkfriends */;
+			targetProxy = 11A921C81D2173010043B1DC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		11A921AC1D2173010043B1DC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				11A921AD1D2173010043B1DC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		11A921B41D2173010043B1DC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				11A921B51D2173010043B1DC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		11A921CE1D2173010043B1DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		11A921CF1D2173010043B1DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		11A921D11D2173010043B1DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = vkfriends/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.alexchur.vkfriends;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		11A921D21D2173010043B1DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = vkfriends/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.alexchur.vkfriends;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		11A921D41D2173010043B1DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = vkfriendsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.alexchur.vkfriendsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/vkfriends.app/vkfriends";
+			};
+			name = Debug;
+		};
+		11A921D51D2173010043B1DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = vkfriendsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.alexchur.vkfriendsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/vkfriends.app/vkfriends";
+			};
+			name = Release;
+		};
+		11A921D71D2173010043B1DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = vkfriendsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.alexchur.vkfriendsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = vkfriends;
+			};
+			name = Debug;
+		};
+		11A921D81D2173010043B1DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = vkfriendsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.alexchur.vkfriendsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = vkfriends;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		11A9219B1D2173010043B1DC /* Build configuration list for PBXProject "vkfriends" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11A921CE1D2173010043B1DC /* Debug */,
+				11A921CF1D2173010043B1DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		11A921D01D2173010043B1DC /* Build configuration list for PBXNativeTarget "vkfriends" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11A921D11D2173010043B1DC /* Debug */,
+				11A921D21D2173010043B1DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		11A921D31D2173010043B1DC /* Build configuration list for PBXNativeTarget "vkfriendsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11A921D41D2173010043B1DC /* Debug */,
+				11A921D51D2173010043B1DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		11A921D61D2173010043B1DC /* Build configuration list for PBXNativeTarget "vkfriendsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11A921D71D2173010043B1DC /* Debug */,
+				11A921D81D2173010043B1DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		11A921AF1D2173010043B1DC /* vkfriends.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				11A921B01D2173010043B1DC /* vkfriends.xcdatamodel */,
+			);
+			currentVersion = 11A921B01D2173010043B1DC /* vkfriends.xcdatamodel */;
+			path = vkfriends.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 11A921981D2173010043B1DC /* Project object */;
+}
