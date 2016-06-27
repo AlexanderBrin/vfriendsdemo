@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Pods-vkfriends.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-vkfriendsTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-vkfriendsUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>VK-ios-sdk.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>533675528419B7D6B3A2106A567A34B0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7154954061FB4ED45D2C618E1DAB3544</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>899BFF289762FFCFB1ED12C67F670AC1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B83556F4FCEEA86FEEEDC7466D9B40B3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

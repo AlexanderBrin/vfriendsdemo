@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import <VKSdk.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate, VKSdkDelegate, VKSdkUIDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

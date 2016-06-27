@@ -1,4 +1,4 @@
-//
+ //
 //  AppDelegate.m
 //  vkfriends
 //
@@ -7,12 +7,37 @@
 //
 
 #import "AppDelegate.h"
+#import <VKSdk.h>
+#import <VKAuthorizeController.h>
+//#import <SFSafariViewControlle>
+
+@import SafariServices;
+
+
+@interface VKAuthorizeController ()
+@property(nonatomic, strong) UIWebView *webView;
+@property(nonatomic, strong) NSString *appId;
+@property(nonatomic, strong) NSString *scope;
+@property(nonatomic, strong) NSURL *redirectUri;
+@property(nonatomic, strong) UIActivityIndicatorView *activityMark;
+@property(nonatomic, strong) UILabel *warningLabel;
+@property(nonatomic, strong) UILabel *statusBar;
+@property(nonatomic, strong) VKError *validationError;
+@property(nonatomic, strong) NSURLRequest *lastRequest;
+@property(nonatomic, weak) UINavigationController *internalNavigationController;
+@property(nonatomic, assign) BOOL finished;
+
+@end
+
 
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
+{
+    __strong VKSdk *_vkSdk;
+}
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -36,6 +61,45 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    if (!_vkSdk)
+    {
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            //_vkSdk = [VKSdk initializeWithAppId:@"5524755"];
+        });
+    }
+    
+    _vkSdk = [VKSdk initializeWithAppId:@"5524755"];
+    
+    VKSdk *vkSdk = _vkSdk;
+    [vkSdk registerDelegate:self];
+    [vkSdk setUiDelegate:self];
+    
+    NSArray *scope = @[@"friends", @"email"];
+    
+    [VKSdk wakeUpSession:scope completeBlock:^(VKAuthorizationState state, NSError *error) {
+        if (state == VKAuthorizationAuthorized)
+        {
+            // Authorized and ready to go
+            //[VKSdk authorize:scope];
+            // [VKSdk authorize:scope withOptions:VKAuthorizationOptionsDisableSafariController];
+            [self showFriends];
+        } else if (state == VKAuthorizationInitialized)
+        {
+            // todo разобраться с SafariController
+           [VKSdk authorize:scope withOptions:VKAuthorizationOptionsDisableSafariController];
+            //[VKSdk authorize:scope];
+        } else if (error) {
+            // Some error happend, but you may try later
+            
+         
+        } 
+    }];
+    
+    
+    
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -122,6 +186,67 @@
             abort();
         }
     }
+}
+
+#pragma mark - VK
+
+//iOS 9 workflow
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options
+{
+    [VKSdk processOpenURL:url fromApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]];
+    return YES;
+}
+
+//iOS 8 and lower
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    [VKSdk processOpenURL:url fromApplication:sourceApplication];
+    return YES;
+}
+
+-(void) vkSdkReceivedNewToken:(VKAccessToken*) newToken
+{
+    
+}
+
+-(void) vkSdkUserDeniedAccess:(VKError*) authorizationError
+{
+    
+}
+
+- (void)vkSdkShouldPresentViewController:(UIViewController *)controller {
+    
+    
+    [self.window.rootViewController presentViewController:controller animated:NO completion:^{
+    
+        if (VK_SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.0"))
+        {
+            //SFSafariViewController *c = (SFSafariViewController *)controller;
+            //c.delegate = _vkSdk;
+        }
+        
+        
+        //VKAuthorizeController * c = (VKAuthorizeController *)(( (UINavigationController *) controller ).viewControllers.firstObject);
+        //c.webView.delegate = c;
+    }];
+}
+
+- (void)vkSdkAccessAuthorizationFinishedWithResult:(VKAuthorizationResult *)result
+{
+    // ОМГ, вконтактик...
+    if (result.state == VKAuthorizationPending && result.token != nil)
+    {
+        // Это таки успех
+        [self showFriends];
+    }
+}
+
+- (void)showFriends
+{
+    // fixme реализовать через Segue и перенести всю работу с авторизацией в контроллер
+    id vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+             instantiateViewControllerWithIdentifier: @"friends"];
+    [self.window.rootViewController presentViewController:vc animated:NO completion:nil];
 }
 
 @end
