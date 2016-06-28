@@ -84,7 +84,10 @@
             // Authorized and ready to go
             //[VKSdk authorize:scope];
             // [VKSdk authorize:scope withOptions:VKAuthorizationOptionsDisableSafariController];
-            [self showFriends];
+           
+            [VKSdk authorize:scope withOptions:VKAuthorizationOptionsDisableSafariController];
+            
+            // [self showFriends];
         } else if (state == VKAuthorizationInitialized)
         {
             // todo разобраться с SafariController

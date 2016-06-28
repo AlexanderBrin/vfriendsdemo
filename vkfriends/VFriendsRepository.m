@@ -193,7 +193,7 @@
     VFriend* friend = _loadedFriends[indexPath.row];
     assert(friend != nil);
     
-    if (friend.photo.state == VFriendsPhotoStateNoexists || friend.photo.state == VFriendsPhotoStateDownloaded)
+    if (friend.photo.state != VFriendsPhotoStatePending)
         return;
     
     
