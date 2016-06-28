@@ -69,5 +69,7 @@ typedef NS_ENUM(NSInteger, VFriendsPhotoState)
 
 - (VFriend*)friendAtIndex:(NSUInteger)index;
 - (void)fetchFriendPhotoAtIndexPath:(NSIndexPath*)indexPath;
+- (BOOL)isNeedToFetchNextFriendsForIndexPath:(NSIndexPath*)indexPath;
+
 
 @end

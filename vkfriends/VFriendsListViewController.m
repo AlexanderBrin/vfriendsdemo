@@ -96,9 +96,8 @@
   willDisplayCell:(UITableViewCell *)cell
 forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSUInteger lastRow = _repository.loadedCount - 1;
-    // Подгружаем данные если будет отображена предпоследняя ячейка
-    if( ( indexPath.row == lastRow - 1 ) && ( lastRow < _repository.count ) )
+    // Подгружаем данные
+    if( [_repository isNeedToFetchNextFriendsForIndexPath:indexPath] )
     {
         [_repository fetchNextFriends];
     }
@@ -113,7 +112,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 - (void)friendsRepositoryFailLoadingFriends:(VFriendsRepository*)repository
 {
-    [self.tableView reloadData];
+    
+    //[self.tableView reloadData];
 }
 
 - (void)friendsRepositoryLoadedPhotoAtIndexPath:(NSIndexPath*)indexPath

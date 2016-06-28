@@ -107,6 +107,9 @@
 @end
 
 @implementation VFriendsRepository
+{
+    NSUInteger _loadingOffset;
+}
 
 
 - (instancetype)init
@@ -132,23 +135,27 @@
     [_loadedFriends removeAllObjects];
     _nextOffset = 0;
     _allFriendsCount = 0;
+    _loadingOffset = NSUIntegerMax;
 }
 
 
 // Метод должен вызываться только из UI потока
 - (void)fetchNextFriends
 {
-    if (_loadedFriends.count < _nextOffset) return;
+    // Если пошла загрузка то не
+    if (_loadedFriends.count < _nextOffset || _loadingOffset == _nextOffset) return;
+    _loadingOffset = _nextOffset;
     
     // VK SDK делает все в фоне
     // Оптимизируем пул чтобы быстрее чистил мусор
-    @autoreleasepool
+    //@autoreleasepool
     {
         id params = @{
                         VK_API_OWNER_ID : @"5524755",
                         VK_API_FIELDS: @"first_name,last_name,city,universities,photo_100",
                         VK_API_OFFSET: @(_nextOffset),
-                        VK_API_COUNT: @(V_FRIENDS_PER_REQUEST)
+                        VK_API_COUNT: @(V_FRIENDS_PER_REQUEST),
+                        VK_API_ORDER: @"name"
                       };
         
         VKRequest* getFriends = [VKRequest requestWithMethod:@"friends.get" parameters:params];
@@ -156,10 +163,13 @@
         [getFriends executeWithResultBlock:^(VKResponse * response) {
             NSLog(@"Json result: %@", response.json);
             
-            _allFriendsCount = ( (NSNumber*)response.json[@"count"] ).unsignedIntegerValue;
-            _nextOffset += V_FRIENDS_PER_REQUEST;
+            
             for (NSDictionary* vkFriend in ( (NSArray*)response.json[@"items"] ))
                 [_loadedFriends addObject:[[VFriend alloc] initWithVKResponseDictionary:vkFriend]];
+            
+            _allFriendsCount = ( (NSNumber*)response.json[@"count"] ).unsignedIntegerValue;
+            _nextOffset += V_FRIENDS_PER_REQUEST;
+            
             [self.delegate friendsRepositoryDidLoadFriends:self];
             
         } errorBlock:^(NSError * error) {
@@ -203,6 +213,14 @@
     
     _photoDownloadsInProgress[indexPath] = op;
     [_photoDownloadQueue addOperation:op];
+}
+
+- (BOOL)isNeedToFetchNextFriendsForIndexPath:(NSIndexPath *)indexPath
+{
+    NSUInteger lastRow = self.loadedCount - 1;
+    return ( indexPath.row == lastRow - 1) // если последняя строка среди загруженных
+    && ( lastRow < self.count ); // если меньше общего числа друзей
+    
 }
 
 - (void)reload
