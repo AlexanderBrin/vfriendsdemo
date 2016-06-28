@@ -16,6 +16,8 @@
 		11A921B61D2173010043B1DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11A921B41D2173010043B1DC /* LaunchScreen.storyboard */; };
 		11A921C11D2173010043B1DC /* vkfriendsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A921C01D2173010043B1DC /* vkfriendsTests.m */; };
 		11A921CC1D2173010043B1DC /* vkfriendsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A921CB1D2173010043B1DC /* vkfriendsUITests.m */; };
+		11A921DB1D2198710043B1DC /* VFriendsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A921DA1D2198710043B1DC /* VFriendsListViewController.m */; };
+		11A921DE1D21B2E70043B1DC /* VFriendsRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A921DD1D21B2E70043B1DC /* VFriendsRepository.m */; };
 		317DDCAE5099B15EA76A954B /* libPods-vkfriendsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A4CB76B0A31400F9FF0BF7 /* libPods-vkfriendsTests.a */; };
 		452D2BF6FBE7888CB3D60378 /* libPods-vkfriendsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD96B7F6CDF096E1C5E611A /* libPods-vkfriendsUITests.a */; };
 		81DC4BAAB67F51D27CBBE094 /* libPods-vkfriends.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03D0981C46783AA72F2F7E5D /* libPods-vkfriends.a */; };
@@ -58,6 +60,10 @@
 		11A921C71D2173010043B1DC /* vkfriendsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vkfriendsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		11A921CB1D2173010043B1DC /* vkfriendsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = vkfriendsUITests.m; sourceTree = "<group>"; };
 		11A921CD1D2173010043B1DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11A921D91D2198710043B1DC /* VFriendsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VFriendsListViewController.h; sourceTree = "<group>"; };
+		11A921DA1D2198710043B1DC /* VFriendsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VFriendsListViewController.m; sourceTree = "<group>"; };
+		11A921DC1D21B2E70043B1DC /* VFriendsRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VFriendsRepository.h; sourceTree = "<group>"; };
+		11A921DD1D21B2E70043B1DC /* VFriendsRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VFriendsRepository.m; sourceTree = "<group>"; };
 		4DC35866DF29132340AB2D6F /* Pods-vkfriends.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vkfriends.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vkfriends/Pods-vkfriends.debug.xcconfig"; sourceTree = "<group>"; };
 		501A2A39EDAB0A058248DA9C /* Pods-vkfriendsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vkfriendsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vkfriendsTests/Pods-vkfriendsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		71A4CB76B0A31400F9FF0BF7 /* libPods-vkfriendsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-vkfriendsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +136,10 @@
 				11A921B71D2173010043B1DC /* Info.plist */,
 				11A921AF1D2173010043B1DC /* vkfriends.xcdatamodeld */,
 				11A921A31D2173010043B1DC /* Supporting Files */,
+				11A921D91D2198710043B1DC /* VFriendsListViewController.h */,
+				11A921DA1D2198710043B1DC /* VFriendsListViewController.m */,
+				11A921DC1D21B2E70043B1DC /* VFriendsRepository.h */,
+				11A921DD1D21B2E70043B1DC /* VFriendsRepository.m */,
 			);
 			path = vkfriends;
 			sourceTree = "<group>";
@@ -445,8 +455,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				11A921AB1D2173010043B1DC /* ViewController.m in Sources */,
+				11A921DB1D2198710043B1DC /* VFriendsListViewController.m in Sources */,
 				11A921A81D2173010043B1DC /* AppDelegate.m in Sources */,
 				11A921B11D2173010043B1DC /* vkfriends.xcdatamodeld in Sources */,
+				11A921DE1D21B2E70043B1DC /* VFriendsRepository.m in Sources */,
 				11A921A51D2173010043B1DC /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
