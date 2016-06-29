@@ -47,12 +47,7 @@
     assert(_photo.state == VFriendsPhotoStatePending);
     if (self.cancelled) return;
     NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:_photo.url]];
-    
-    
-    
-    //if (self.cancelled) return;
 
-    
     if (data.length > 0)
     {
         _photo.image = [UIImage imageWithData:data];
@@ -63,8 +58,6 @@
         _photo.image = nil;
         _photo.state = VFriendsPhotoStateFailed;
     }
-    
-    
 }
 
 @end
@@ -111,7 +104,6 @@
     NSUInteger _loadingOffset;
 }
 
-
 - (instancetype)init
 {
     self = [super init];
@@ -121,7 +113,7 @@
         _photoDownloadsInProgress = [NSMutableDictionary new];
         _photoDownloadQueue = [NSOperationQueue new];
         _photoDownloadQueue.name = @"photos";
-        _photoDownloadQueue.maxConcurrentOperationCount = 2;
+        _photoDownloadQueue.maxConcurrentOperationCount = 1;
     }
     return self;
 }
@@ -143,12 +135,13 @@
 - (void)fetchNextFriends
 {
     // Если пошла загрузка то не
-    if (_loadedFriends.count < _nextOffset || _loadingOffset == _nextOffset) return;
-    _loadingOffset = _nextOffset;
+    if (_loadedFriends.count < _nextOffset // если загружено меньше, чем
+        || _loadingOffset == _nextOffset) return;
+        _loadingOffset = _nextOffset;
     
-    // VK SDK делает все в фоне
-    // Оптимизируем пул чтобы быстрее чистил мусор
-    //@autoreleasepool
+    // VK SDK делает все в фоне, поэтому работаем напрямую
+    
+    @autoreleasepool
     {
         id params = @{
                         VK_API_OWNER_ID : @"5524755",
@@ -163,16 +156,20 @@
         [getFriends executeWithResultBlock:^(VKResponse * response) {
             NSLog(@"Json result: %@", response.json);
             
-            
             for (NSDictionary* vkFriend in ( (NSArray*)response.json[@"items"] ))
                 [_loadedFriends addObject:[[VFriend alloc] initWithVKResponseDictionary:vkFriend]];
             
             _allFriendsCount = ( (NSNumber*)response.json[@"count"] ).unsignedIntegerValue;
             _nextOffset += V_FRIENDS_PER_REQUEST;
+            // никто не загружает
+            _loadingOffset = NSUIntegerMax;
             
             [self.delegate friendsRepositoryDidLoadFriends:self];
             
         } errorBlock:^(NSError * error) {
+            _loadingOffset = NSUIntegerMax;
+            [self.delegate friendsRepositoryFailLoadingFriends:self];
+            
             if (error.code != VK_API_ERROR) {
                 [error.vkError.request repeat];
             }
@@ -185,8 +182,6 @@
 
 - (void)fetchFriendPhotoAtIndexPath:(NSIndexPath*)indexPath
 {
-    
-    
     if ( _photoDownloadsInProgress[indexPath] )
         return;
     
@@ -195,7 +190,6 @@
     
     if (friend.photo.state != VFriendsPhotoStatePending)
         return;
-    
     
     VFriendsPhotoFetching* op = [VFriendsPhotoFetching new];
     op.photo = ( (VFriend*)_loadedFriends[indexPath.row] ).photo;
@@ -215,12 +209,20 @@
     [_photoDownloadQueue addOperation:op];
 }
 
+- (void)fetchFriendPhotosAtIndexPaths:(NSArray*)indexPaths
+{
+    for (NSIndexPath* path in indexPaths)
+    {
+        [self fetchFriendPhotoAtIndexPath:path];
+    }
+}
+
+
 - (BOOL)isNeedToFetchNextFriendsForIndexPath:(NSIndexPath *)indexPath
 {
     NSUInteger lastRow = self.loadedCount - 1;
-    return ( indexPath.row == lastRow - 1) // если последняя строка среди загруженных
-    && ( lastRow < self.count ); // если меньше общего числа друзей
-    
+    return ( indexPath.row == lastRow - 1 ) // если последняя строка среди загруженных
+            && ( lastRow < self.count ); // если меньше общего числа друзей
 }
 
 - (void)reload
@@ -254,5 +256,16 @@
     assert(_loadedFriends.count > index);
     return _loadedFriends[index];
 }
+
+- (void)suspendAllPhotosDownloads
+{
+    _photoDownloadQueue.suspended = YES;
+}
+
+- (void)resumeAllPhotosDownloads
+{
+    _photoDownloadQueue.suspended = NO;
+}
+
 
 @end

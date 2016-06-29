@@ -24,24 +24,15 @@
 
 @implementation VFriendCell
 
-
 - (void)displayFriend:(VFriend*)friend
 {
     _firstNameLabel.text = [friend.firstName copy];
     _lastNameLabel.text = [friend.lastName copy];
     _universityLabel.text = [friend.university copy];
     _cityLabel.text = [friend.city copy];
-    
-    
-    if (friend.photo.state == VFriendsPhotoStateDownloaded)
-    {
-        _photoImageView.image = friend.photo.image;
-    }
-    else
-    {
-        _photoImageView.image = nil;
-    }
-        
+    _photoImageView.image = (friend.photo.state == VFriendsPhotoStateDownloaded)
+        ? friend.photo.image
+        : nil;
 }
 
 @end
@@ -87,7 +78,7 @@
 {
     VFriendCell* cell = (VFriendCell*)[tableView dequeueReusableCellWithIdentifier:@"friend"];
     [cell displayFriend:[_repository friendAtIndex:indexPath.row]];
-    //if (!tableView.dragging && !tableView.decelerating)
+    if (!tableView.dragging && !tableView.decelerating)
         [_repository fetchFriendPhotoAtIndexPath:indexPath];
     return cell;
 }
@@ -96,14 +87,14 @@
   willDisplayCell:(UITableViewCell *)cell
 forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Подгружаем данные
+    // Подгружаем данные если это необходимо
     if( [_repository isNeedToFetchNextFriendsForIndexPath:indexPath] )
     {
         [_repository fetchNextFriends];
     }
 }
 
-
+#pragma mark - VFriendsRepositoryDelegate
 
 - (void)friendsRepositoryDidLoadFriends:(VFriendsRepository*)repository
 {
@@ -112,14 +103,39 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 - (void)friendsRepositoryFailLoadingFriends:(VFriendsRepository*)repository
 {
-    
-    //[self.tableView reloadData];
+    [self.tableView reloadData];
 }
 
 - (void)friendsRepositoryLoadedPhotoAtIndexPath:(NSIndexPath*)indexPath
 {
     [self.tableView reloadRowsAtIndexPaths:@[indexPath]
                           withRowAnimation:UITableViewRowAnimationFade];
+}
+
+#pragma mark - UIScrollViewDelegate
+
+// Останавливаем текущие загрузки.
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [_repository suspendAllPhotosDownloads];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView
+                  willDecelerate:(BOOL)decelerate
+{
+    // если замедления нет, то значит друго шанса загрузить фото не будет
+    if (!decelerate)
+    {
+        [self scrollViewDidEndDecelerating:scrollView];
+    }
+}
+
+// возобновляем загрузку фотографий
+// и
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [_repository resumeAllPhotosDownloads];
+    [_repository fetchFriendPhotosAtIndexPaths:self.tableView.indexPathsForVisibleRows];
 }
 
 @end

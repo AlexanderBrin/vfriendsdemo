@@ -81,13 +81,7 @@
     [VKSdk wakeUpSession:scope completeBlock:^(VKAuthorizationState state, NSError *error) {
         if (state == VKAuthorizationAuthorized)
         {
-            // Authorized and ready to go
-            //[VKSdk authorize:scope];
-            // [VKSdk authorize:scope withOptions:VKAuthorizationOptionsDisableSafariController];
-           
-            [VKSdk authorize:scope withOptions:VKAuthorizationOptionsDisableSafariController];
-            
-            // [self showFriends];
+            [self showFriends];
         } else if (state == VKAuthorizationInitialized)
         {
             // todo разобраться с SafariController
@@ -95,14 +89,8 @@
             //[VKSdk authorize:scope];
         } else if (error) {
             // Some error happend, but you may try later
-            
-         
         } 
     }];
-    
-    
-    
-    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -217,21 +205,9 @@
     
 }
 
-- (void)vkSdkShouldPresentViewController:(UIViewController *)controller {
-    
-    
-    [self.window.rootViewController presentViewController:controller animated:NO completion:^{
-    
-        if (VK_SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.0"))
-        {
-            //SFSafariViewController *c = (SFSafariViewController *)controller;
-            //c.delegate = _vkSdk;
-        }
-        
-        
-        //VKAuthorizeController * c = (VKAuthorizeController *)(( (UINavigationController *) controller ).viewControllers.firstObject);
-        //c.webView.delegate = c;
-    }];
+- (void)vkSdkShouldPresentViewController:(UIViewController *)controller
+{
+    [self.window.rootViewController presentViewController:controller animated:NO completion:nil];
 }
 
 - (void)vkSdkAccessAuthorizationFinishedWithResult:(VKAuthorizationResult *)result
