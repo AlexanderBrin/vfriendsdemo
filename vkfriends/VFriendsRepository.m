@@ -9,7 +9,7 @@
 #import "VFriendsRepository.h"
 #import <VKSdk.h>
 
-#define V_FRIENDS_PER_REQUEST 5
+#define V_FRIENDS_PER_REQUEST 6
 
 @implementation VFriendPhoto
 @end
@@ -221,7 +221,7 @@
 - (BOOL)isNeedToFetchNextFriendsForIndexPath:(NSIndexPath *)indexPath
 {
     NSUInteger lastRow = self.loadedCount - 1;
-    return ( indexPath.row == lastRow - 1 ) // если последняя строка среди загруженных
+    return ( indexPath.row == lastRow - 3 ) // если последняя строка среди загруженных
             && ( lastRow < self.count ); // если меньше общего числа друзей
 }
 
